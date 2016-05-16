@@ -11,7 +11,7 @@ This repository contains the code from [Deep-Reflectance-Code](https://github.co
 * The code relies on [vlfeat](http://www.vlfeat.org/), and [matconvnet](http://www.vlfeat.org/matconvnet), which should be downloaded and built before running the experiments. (Supprting the version [matconvnet-1.0-beta18](http://www.vlfeat.org/matconvnet/download/).)
 You can use the following commend to download them:
 
-		git clone --recurse-submodules https://github.com/zhanghang1989/Deep-Reflectance-Code.git
+		git clone --recurse-submodules https://github.com/mrxue1993/deep-filter-banks-wild-dataset.git
 	
 * Download the model [VGG-M](http://www.vlfeat.org/matconvnet/pretrained) to `data/models` (older models can also be updated using the `vl_simplenn_tidy` function).
 
