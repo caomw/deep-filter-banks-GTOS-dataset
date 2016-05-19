@@ -88,6 +88,10 @@ else
   vl_printsize(1) ;
   [a,b,c] = fileparts(opts.resultPath) ;
   print('-dpdf', fullfile(a, [b '.pdf'])) ;
+  xlswrite( fullfile(a,'train_confusion_per_pixel.xlsx'),info.train.confusion);
+  xlswrite(fullfile(a,'test_confusion_per_pixel.xlsx'),info.test.confusion);
+  xlswrite(fullfile(a,'train_confusion_per_segment.xlsx'),info.train.psConfusion);
+  xlswrite(fullfile(a,'test_confusion_per_segment.xlsx'),info.test.psConfusion);
 end
 
 str = {} ;
@@ -257,20 +261,24 @@ if ~multiLabel
 
   subplot(3,2,3) ;
   imagesc(info.train.confusion) ;
+  
   title(sprintf('train confusion per pixel (acc: %.1f, msrc acc: %.1f)', ...
     info.train.acc*100, info.train.msrcAcc*100)) ;
 
   subplot(3,2,4) ;
   imagesc(info.test.confusion) ;
+  
   title(sprintf('test confusion per pixel (acc: %.1f, msrc acc: %.1f)', ...
     info.test.acc*100, info.test.msrcAcc*100)) ;
 
   subplot(3,2,5) ;
   imagesc(info.train.psConfusion) ;
+  
   title(sprintf('train confusion per segment (acc: %.1f)', info.train.psAcc*100)) ;
 
   subplot(3,2,6) ;
   imagesc(info.test.psConfusion) ;
+  
   title(sprintf('test confusion per segment (acc: %.1f)', info.test.psAcc*100)) ;
 end
 
