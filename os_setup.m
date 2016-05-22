@@ -26,6 +26,7 @@ opts.alotDir = 'data\alot';
 opts.mitDir = 'data\mit_indoor';
 opts.msrcDir = 'data\msrc_c';
 opts.wildDir = 'data\wild';
+opts.new_wildDir = 'data\new_wild';
 opts.cubDir = 'data\cub';
 opts.vocDir = 'data\VOC2007';
 opts.vocDir12 = 'data\VOC2012';
@@ -138,6 +139,8 @@ switch opts.dataset
     imdb = reflectance_get_database(opts.reflectanceDir);
   case 'wild'
     imdb = wild_get_database(opts.wildDir);
+  case 'new_wild'
+    imdb = new_wild_get_database(opts.new_wildDir);
   case 'msrc'
     imdb = msrc_c_get_database(opts.msrcDir);
   case 'cubcrop'

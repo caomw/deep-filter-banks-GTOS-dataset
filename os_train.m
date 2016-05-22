@@ -34,6 +34,10 @@ end
 if strcmp(opts.dataset,'wild')
     imdb.segments.set = imdb.images.set;
 end
+
+if strcmp(opts.dataset,'new_wild')
+    imdb.segments.set = imdb.images.set;
+end
 % -------------------------------------------------------------------------
 %                                          Train encoders and compute codes
 % -------------------------------------------------------------------------
@@ -88,10 +92,14 @@ else
   vl_printsize(1) ;
   [a,b,c] = fileparts(opts.resultPath) ;
   print('-dpdf', fullfile(a, [b '.pdf'])) ;
-  xlswrite( fullfile(a,'train_confusion_per_pixel.xlsx'),info.train.confusion);
-  xlswrite(fullfile(a,'test_confusion_per_pixel.xlsx'),info.test.confusion);
-  xlswrite(fullfile(a,'train_confusion_per_segment.xlsx'),info.train.psConfusion);
-  xlswrite(fullfile(a,'test_confusion_per_segment.xlsx'),info.test.psConfusion);
+  excelpath =fullfile(a,b,'\');
+  if~exist(excelpath)
+      mkdir(excelpath)
+  end
+  xlswrite( fullfile(excelpath,'train_confusion_per_pixel.xlsx'),info.train.confusion);
+  xlswrite(fullfile(excelpath,'test_confusion_per_pixel.xlsx'),info.test.confusion);
+  xlswrite(fullfile(excelpath,'train_confusion_per_segment.xlsx'),info.train.psConfusion);
+  xlswrite(fullfile(excelpath,'test_confusion_per_segment.xlsx'),info.test.psConfusion);
 end
 
 str = {} ;
@@ -304,7 +312,7 @@ poolobj = parpool;
 if isempty(poolobj)
     numWorkers = 0;
 else
-    numWorkers = poolobj.NumWorkers -1
+    numWorkers = 1;
 end
 %numWorkers = matlabpool('size') ;
 parfor (b = 1:numel(batches), numWorkers)
