@@ -4,7 +4,7 @@ Jia Xue
 
 ###   Introduction
 
-This repository contains the code from [Deep-Reflectance-Code](https://github.com/zhanghang1989/Deep-Reflectance-Code.git), and [deep filter banks](https://github.com/mcimpoi/deep-fbanks.git), I used this algorithm to my dataset.
+This repository contains the code from [Deep-Reflectance-Code](https://github.com/zhanghang1989/Deep-Reflectance-Code.git), and [deep filter banks](https://github.com/mcimpoi/deep-fbanks.git). this algorithm is been adapted to GTOS dataset.
 
 ### Get Started
 
